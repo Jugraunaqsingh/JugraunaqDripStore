@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Blog | J Drip</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/fonts/font.css" />
+  <style>
+    body {
+      background: linear-gradient(to right, #c3aed6, #a391e0);
+    }
+    .blog-hero {
+      background-image: url('assets/images/hero-banner-2.png');
+      background-size: cover;
+      background-position: center;
+      padding: 120px 0;
+      position: relative;
+      text-align: center;
+      color: white;
+    }
+    .blog-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+    .blog-hero h1 {
+      position: relative;
+      z-index: 1;
+      font-size: 4rem;
+      font-family: var(--fontFamily-clashDisplay);
+    }
+    .blog-section {
+      padding: 80px 0;
+    }
+    .blog-card {
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: var(--shadow-2);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+    .blog-card:hover {
+      transform: translateY(-5px);
+    }
+    .blog-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+    .blog-card .content {
+      padding: 20px;
+      text-align: left;
+    }
+    .blog-card .title {
+      font-size: 2.2rem;
+      color: var(--text-eerie-black);
+      margin-bottom: 10px;
+    }
+    .blog-card p {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header" data-header>
+    <div class="container">
+      <a href="index.html" class="logo">
+        <p class="hero-subtitle title">J Drip</p>
+      </a>
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+          <li><a href="index.html" class="navbar-link">Home</a></li>
+          <li><a href="portfolio.html" class="navbar-link">Portfolio</a></li>
+          <li><a href="blog.html" class="navbar-link">Blog</a></li>
+          <li><a href="https://www.google.com/maps/place/VIT+Vellore/" class="navbar-link" target="_blank">Shop</a></li>
+        </ul>
+        <button class="cart-btn">
+          <ion-icon name="bag" aria-hidden="true"></ion-icon>
+          <span class="span">Cart</span>
+        </button>
+        <div class="auth-buttons">
+          <a href="login.html" class="btn btn-outline" id="login-btn">Login</a>
+          <a href="signup.html" class="btn btn-outline" id="signup-btn">Signup</a>
+        </div>
+      </nav>
+      <button class="nav-open-btn" aria-label="toggle menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="blog-hero">
+    <h1>📝 Our Stories & Style</h1>
+  </section>
+
+  <!-- Blog Posts -->
+  <section class="container blog-section">
+    <div class="feature-list">
+
+      <div class="blog-card">
+        <img src="assets/images/product-1.png" alt="blog 1">
+        <div class="content">
+          <h2 class="title">Latest Summer Trends</h2>
+          <p>Explore the fashion wave of 2025. What's hot, what's not, and what makes J Drip unique this season.</p>
+          <p><small>By Admin | April 6, 2025</small></p>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <img src="assets/images/product-2.png" alt="blog 2">
+        <div class="content">
+          <h2 class="title">Behind the Drip</h2>
+          <p>A peek into how our collections are designed, sourced, and brought to life.</p>
+          <p><small>By Team J Drip | March 22, 2025</small></p>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <img src="assets/images/product-5.png" alt="blog 3">
+        <div class="content">
+          <h2 class="title">Sustainable Streetwear</h2>
+          <p>Learn how J Drip is stepping up eco-fashion with bold new designs and sustainable materials.</p>
+          <p><small>By GreenStyle | March 10, 2025</small></p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="logo"><p class="hero-subtitle title">J Drip</p></a>
+          <p class="footer-text">
+            Setting the tone for trendsetters. Crafted with style, delivered with passion.
+          </p>
+        </div>
+        <ul class="footer-list">
+          <li><p class="footer-list-title title">Contact info</p></li>
+          <li><address class="footer-text">London WC2H 9PR, United Kingdom</address></li>
+          <li><a href="mailto:info@jdrip.com">info@jdrip.com</a></li>
+          <li><a href="tel:+00123456789">+00 123 456 789</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <p class="copyright">© 2025 J Drip. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    const loginBtn = document.getElementById("login-btn");
+    const signupBtn = document.getElementById("signup-btn");
+    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+    if (isLoggedIn) {
+      loginBtn.textContent = "Logout";
+      loginBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        localStorage.removeItem("isLoggedIn");
+        alert("Logged out!");
+        location.reload();
+      });
+      signupBtn.style.display = "none";
+    }
+  </script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
